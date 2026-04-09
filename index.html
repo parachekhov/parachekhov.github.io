@@ -3,77 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <title>gaidys.ru</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
+    :root {
+      --bg: #f7f6f3;
+      --text: #2f2f2f;
+
+      --red: #d96c6c;
+      --blue: #6c8fd9;
+      --yellow: #d9b96c;
+      --green: #7dbb91;
+      --accent: #b07dd9;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      height: 100vh;
+      width: 100%;
     }
 
     h1 {
       position: absolute;
-      z-index: 2;
-      color: #333;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
       font-weight: 500;
-      letter-spacing: 1px;
-    }
-
-    .bg {
-      position: absolute;
-      width: 100%;
-      height: 100%;
+      letter-spacing: 0.08em;
+      text-align: center;
+      font-size: clamp(20px, 4vw, 36px);
+      z-index: 2;
     }
 
     svg {
       width: 100%;
       height: 100%;
     }
+
+    /* Анимация "дыхания" */
+    .breath {
+      transform-origin: center;
+      animation: breath 6s ease-in-out infinite;
+    }
+
+    .breath2 {
+      transform-origin: center;
+      animation: breath 7s ease-in-out infinite;
+    }
+
+    @keyframes breath {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    /* Немного движения */
+    .float {
+      animation: float 10s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Адаптив: чуть проще на маленьких экранах */
+    @media (max-width: 600px) {
+      .hide-mobile {
+        display: none;
+      }
+    }
+
   </style>
 </head>
+
 <body>
 
-<h1>gaidys.ru в разработке</h1>
+<div class="container">
+  <h1>gaidys.ru в разработке</h1>
 
-<div class="bg">
   <svg viewBox="0 0 800 600">
 
     <!-- Петушок 1 -->
-    <g transform="translate(200,300) scale(1)">
+    <g class="breath float" transform="translate(220,330)">
       <!-- тело -->
-      <circle cx="0" cy="0" r="60" fill="#d6d6d6"/>
+      <circle cx="0" cy="0" r="70" fill="var(--red)" opacity="0.85"/>
+
       <!-- голова -->
-      <circle cx="70" cy="-40" r="25" fill="#c2c2c2"/>
+      <circle cx="80" cy="-50" r="30" fill="var(--yellow)"/>
+
       <!-- клюв -->
-      <polygon points="95,-40 120,-30 95,-20" fill="#a8a8a8"/>
+      <polygon points="110,-50 140,-40 110,-30" fill="#e5a85c"/>
+
       <!-- хвост -->
-      <polygon points="-60,0 -120,-40 -100,20" fill="#bdbdbd"/>
-      <polygon points="-60,0 -120,40 -100,-20" fill="#b0b0b0"/>
+      <polygon points="-70,0 -150,-50 -110,20" fill="var(--blue)"/>
+      <polygon points="-70,0 -150,50 -110,-20" fill="var(--green)"/>
+      <polygon points="-60,-10 -140,-10 -100,-60" fill="var(--accent)" opacity="0.8"/>
+
       <!-- гребень -->
-      <circle cx="60" cy="-70" r="8" fill="#9e9e9e"/>
-      <circle cx="75" cy="-75" r="8" fill="#9e9e9e"/>
-      <circle cx="90" cy="-70" r="8" fill="#9e9e9e"/>
+      <circle cx="70" cy="-90" r="10" fill="#c94c4c"/>
+      <circle cx="90" cy="-95" r="10" fill="#c94c4c"/>
+      <circle cx="110" cy="-90" r="10" fill="#c94c4c"/>
     </g>
 
-    <!-- Петушок 2 -->
-    <g transform="translate(600,320) scale(0.9)">
+    <!-- Петушок 2 (другой стиль) -->
+    <g class="breath2 hide-mobile" transform="translate(580,300) scale(0.9)">
       <!-- тело -->
-      <circle cx="0" cy="0" r="60" fill="#d0d0d0"/>
+      <ellipse cx="0" cy="0" rx="75" ry="60" fill="var(--blue)" opacity="0.85"/>
+
       <!-- голова -->
-      <circle cx="-70" cy="-40" r="25" fill="#bcbcbc"/>
+      <circle cx="-85" cy="-45" r="28" fill="var(--green)"/>
+
       <!-- клюв -->
-      <polygon points="-95,-40 -120,-30 -95,-20" fill="#a0a0a0"/>
+      <polygon points="-110,-45 -140,-35 -110,-25" fill="#d4a35a"/>
+
       <!-- хвост -->
-      <polygon points="60,0 120,-40 100,20" fill="#b5b5b5"/>
-      <polygon points="60,0 120,40 100,-20" fill="#ababab"/>
+      <polygon points="70,0 150,-50 110,20" fill="var(--red)"/>
+      <polygon points="70,0 150,50 110,-20" fill="var(--yellow)"/>
+
+      <!-- декоративный элемент -->
+      <circle cx="20" cy="-20" r="15" fill="var(--accent)" opacity="0.6"/>
+
       <!-- гребень -->
-      <circle cx="-60" cy="-70" r="8" fill="#999"/>
-      <circle cx="-75" cy="-75" r="8" fill="#999"/>
-      <circle cx="-90" cy="-70" r="8" fill="#999"/>
+      <circle cx="-75" cy="-85" r="9" fill="#b04c4c"/>
+      <circle cx="-95" cy="-90" r="9" fill="#b04c4c"/>
+      <circle cx="-115" cy="-85" r="9" fill="#b04c4c"/>
     </g>
 
   </svg>
