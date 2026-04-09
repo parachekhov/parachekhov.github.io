@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>gaidys.ru</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      position: absolute;
+      z-index: 2;
+      color: #333;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<h1>gaidys.ru в разработке</h1>
+
+<div class="bg">
+  <svg viewBox="0 0 800 600">
+
+    <!-- Петушок 1 -->
+    <g transform="translate(200,300) scale(1)">
+      <!-- тело -->
+      <circle cx="0" cy="0" r="60" fill="#d6d6d6"/>
+      <!-- голова -->
+      <circle cx="70" cy="-40" r="25" fill="#c2c2c2"/>
+      <!-- клюв -->
+      <polygon points="95,-40 120,-30 95,-20" fill="#a8a8a8"/>
+      <!-- хвост -->
+      <polygon points="-60,0 -120,-40 -100,20" fill="#bdbdbd"/>
+      <polygon points="-60,0 -120,40 -100,-20" fill="#b0b0b0"/>
+      <!-- гребень -->
+      <circle cx="60" cy="-70" r="8" fill="#9e9e9e"/>
+      <circle cx="75" cy="-75" r="8" fill="#9e9e9e"/>
+      <circle cx="90" cy="-70" r="8" fill="#9e9e9e"/>
+    </g>
+
+    <!-- Петушок 2 -->
+    <g transform="translate(600,320) scale(0.9)">
+      <!-- тело -->
+      <circle cx="0" cy="0" r="60" fill="#d0d0d0"/>
+      <!-- голова -->
+      <circle cx="-70" cy="-40" r="25" fill="#bcbcbc"/>
+      <!-- клюв -->
+      <polygon points="-95,-40 -120,-30 -95,-20" fill="#a0a0a0"/>
+      <!-- хвост -->
+      <polygon points="60,0 120,-40 100,20" fill="#b5b5b5"/>
+      <polygon points="60,0 120,40 100,-20" fill="#ababab"/>
+      <!-- гребень -->
+      <circle cx="-60" cy="-70" r="8" fill="#999"/>
+      <circle cx="-75" cy="-75" r="8" fill="#999"/>
+      <circle cx="-90" cy="-70" r="8" fill="#999"/>
+    </g>
+
+  </svg>
+</div>
+
+</body>
+</html>
